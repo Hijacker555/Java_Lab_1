@@ -22,14 +22,21 @@ class lab1 {
                             MonthStud[i] = (int) (Math.random() * 12) + 1;
                             System.out.println(StudentsList[i] + "   " + MonthStud[i]);
                         }
-
                         for (int i = 0; i < students; i++) {
                             if (MonthStud[i] == months)
                                 System.out.println(StudentsList[i] + "   " + MonthStud[i]);
                         }
+                    } else {
+                        System.out.println("Введено неправильное значение");
                     }
+                } else {
+                    System.out.println("Введено неправильное значение");
                 }
+            } else {
+                System.out.println("Введено неправильное значение");
             }
+        } else {
+            System.out.println("Введено неправильное значение");
         }
     }
 }
