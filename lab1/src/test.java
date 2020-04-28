@@ -13,13 +13,16 @@ class lab1 {
                 if (month.hasNextInt()) {
                     int months = month.nextInt();
                     if (months >= 1 && months <= 12) {
+
                         String[] StudentsList = new String[students];
                         int[] MonthStud = new int[students];
+
                         for (int i = 0; i < students; i++) {
                             StudentsList[i] = "Family" + (i + 1);
                             MonthStud[i] = (int) (Math.random() * 12) + 1;
                             System.out.println(StudentsList[i] + "   " + MonthStud[i]);
                         }
+
                         for (int i = 0; i < students; i++) {
                             if (MonthStud[i] == months)
                                 System.out.println(StudentsList[i] + "   " + MonthStud[i]);
