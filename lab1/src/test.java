@@ -3,26 +3,27 @@
 
 import java.util.Scanner;
 
-class lab1
-{
-    public static void main (String args[])
-    {
+class lab1 {
+    public static void main(String args[]) {
         Scanner stud = new Scanner(System.in);
-        int student = Integer.parseInt(stud.nextLine());
-        if(student >0) {
-            Scanner month = new Scanner(System.in);
-            int months = Integer.parseInt(month.nextLine());
-            if (months>=1 && months<=12) {
-                String[] StudentsList = new String[student];
-                int[] MonthStud = new int[student];
-                for (int i = 0; i < student; i++) {
-                    StudentsList[i] = "Family" + (i + 1);
-                    MonthStud[i] = (int) (Math.random() * 12) + 1;
-                    System.out.println(StudentsList[i] + "   " + MonthStud[i]);
-                }
-                for (int i = 0; i < student; i++) {
-                    if (MonthStud[i] == months) {
-                        System.out.println(StudentsList[i] + "   " + MonthStud[i]);
+        if (stud.hasNextInt()) {
+            int students = stud.nextInt();
+            if (students > 0) {
+                Scanner month = new Scanner(System.in);
+                if (month.hasNextInt()) {
+                    int months = month.nextInt();
+                    if (months >= 1 && months <= 12) {
+                        String[] StudentsList = new String[students];
+                        int[] MonthStud = new int[students];
+                        for (int i = 0; i < students; i++) {
+                            StudentsList[i] = "Family" + (i + 1);
+                            MonthStud[i] = (int) (Math.random() * 12) + 1;
+                            System.out.println(StudentsList[i] + "   " + MonthStud[i]);
+                        }
+                        for (int i = 0; i < students; i++) {
+                            if (MonthStud[i] == months)
+                                System.out.println(StudentsList[i] + "   " + MonthStud[i]);
+                        }
                     }
                 }
             }
