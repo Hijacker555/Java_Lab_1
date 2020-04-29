@@ -2,43 +2,49 @@
  Задачей приложения является вывод всех фамилий студентов, которые родились в месяц, заданный параметром. Необходимо также выводить вначале список всех студентов с датами рождения. Обработайте ошибки при введении параметров.*/
 
 import java.util.Scanner;
+import java.util.regex.*;
+import java.io.IOException;
 
 class lab1 {
     public static void main(String args[]) {
-        Scanner stud = new Scanner(System.in);
-        if (stud.hasNextInt()) {
-            int students = stud.nextInt();
-            if (students > 0) {
-                Scanner month = new Scanner(System.in);
-                if (month.hasNextInt()) {
-                    int months = month.nextInt();
-                    if (months >= 1 && months <= 12) {
-
-                        String[] StudentsList = new String[students];
-                        int[] MonthStud = new int[students];
-
-                        for (int i = 0; i < students; i++) {
-                            StudentsList[i] = "Family" + (i + 1);
-                            MonthStud[i] = (int) (Math.random() * 12) + 1;
-                            System.out.println(StudentsList[i] + "   " + MonthStud[i]);
-                        }
-                        for (int i = 0; i < students; i++) {
-                            if (MonthStud[i] == months)
-                                System.out.println(StudentsList[i] + "   " + MonthStud[i]);
-                        }
-                    } else {
-                        System.out.println("Введено неправильное значение");
-                    }
-                } else {
-                    System.out.println("Введено неправильное значение");
-                }
-            } else {
-                System.out.println("Введено неправильное значение");
-            }
-        } else {
-            System.out.println("Введено неправильное значение");
+        String students, months;
+        int student = 0, month = 0;
+        Scanner s = new Scanner(System.in);
+        try {
+            students = s.nextLine();
+            student = Integer.parseInt(students);
+        } catch (Exception e) {
+            System.out.println("Неправильный формат числа.");
         }
+        if (student > 0) {
+            try {
+                months = s.nextLine();
+                month = Integer.parseInt(months);
+            } catch (Exception e) {
+                System.out.println("Неправильный формат числа.");
+            }
+            s.close();
+            if (month >= 1 && month <= 12) {
+
+                String[] StudentsList = new String[student];
+                int[] MonthStud = new int[student];
+
+                for (int k = 0; k < student; k++) {
+                    StudentsList[k] = "Family" + (k + 1);
+                    MonthStud[k] = (int) (Math.random() * 12) + 1;
+                    System.out.println(StudentsList[k] + "   " + MonthStud[k]);
+                }
+                for (int k = 0; k < student; k++) {
+                    if (MonthStud[k] == month)
+                        System.out.println(StudentsList[k] + "   " + MonthStud[k]);
+                }
+            } else System.out.println("Введите число от 1 до 12.");
+        }else System.out.println("Введите число от 1 и выше.");
     }
 }
+
+
+
+
 
 
